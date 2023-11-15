@@ -1,5 +1,5 @@
 {
-  "name": "remix-application-template",
+  "name": "remix-application-example",
   "private": true,
   "sideEffects": false,
   "type": "module",

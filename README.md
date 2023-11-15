@@ -1,8 +1,8 @@
 # Remix Application Template
 
-[![Pipeline](https://github.com/digitalservicebund/remix-application-template/actions/workflows/pipeline.yml/badge.svg)](https://github.com/digitalservicebund/remix-application-template/actions/workflows/pipeline.yml)
-[![Scan](https://github.com/digitalservicebund/remix-application-template/actions/workflows/scan.yml/badge.svg)](https://github.com/digitalservicebund/remix-application-template/actions/workflows/scan.yml)
-[![Secrets Check](https://github.com/digitalservicebund/remix-application-template/actions/workflows/secrets-check.yml/badge.svg)](https://github.com/digitalservicebund/remix-application-template/actions/workflows/secrets-check.yml)
+[![Pipeline](https://github.com/digitalservicebund/remix-application-example/actions/workflows/pipeline.yml/badge.svg)](https://github.com/digitalservicebund/remix-application-example/actions/workflows/pipeline.yml)
+[![Scan](https://github.com/digitalservicebund/remix-application-example/actions/workflows/scan.yml/badge.svg)](https://github.com/digitalservicebund/remix-application-example/actions/workflows/scan.yml)
+[![Secrets Check](https://github.com/digitalservicebund/remix-application-example/actions/workflows/secrets-check.yml/badge.svg)](https://github.com/digitalservicebund/remix-application-example/actions/workflows/secrets-check.yml)
 
 ⚠️ **Be warned:** This template is currently work in progress and has not been tested in production yet.
 
@@ -118,12 +118,12 @@ brew install adr-tools
 ## Contributing
 
 🇬🇧
-Everyone is welcome to contribute the development of the _remix-application-template_. You can contribute by opening pull request,
+Everyone is welcome to contribute the development of the _remix-application-example_. You can contribute by opening pull request,
 providing documentation or answering questions or giving feedback. Please always follow the guidelines and our
 [Code of Conduct](CODE_OF_CONDUCT.md).
 
-🇩🇪  
-Jede:r ist herzlich eingeladen, die Entwicklung der _remix-application-template_ mitzugestalten. Du kannst einen Beitrag leisten,
+🇩🇪
+Jede:r ist herzlich eingeladen, die Entwicklung der _remix-application-example_ mitzugestalten. Du kannst einen Beitrag leisten,
 indem du Pull-Requests eröffnest, die Dokumentation erweiterst, Fragen beantwortest oder Feedback gibst.
 Bitte befolge immer die Richtlinien und unseren [Verhaltenskodex](CODE_OF_CONDUCT_DE.md).
 
@@ -136,7 +136,7 @@ By submitting the patch, you agree that your contributions are licensed under th
 
 Please make sure that your changes have been tested befor submitting a pull request.
 
-🇩🇪  
+🇩🇪
 Nach dem Erstellen eines Pull Requests wird dieser von einer Person aus dem Team überprüft. Wenn du einen Pull-Request
 einreichst, erklärst du dich damit einverstanden, deinen Beitrag an den DigitalService und die Community zu
 lizenzieren. Durch das Einreichen des Patches erklärst du dich damit einverstanden, dass deine Beiträge unter der
