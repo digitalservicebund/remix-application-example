@@ -1,0 +1,17 @@
+# Ignore everything
+*
+
+# Include files for the build
+!app
+!public
+public/build
+!LICENSE
+!package-lock.json
+!package.json
+!README.md
+!remix.config.js
+!remix.env.d.ts
+!SECURITY.md
+!security.txt
+!tailwind.config.js
+!tsconfig.json
