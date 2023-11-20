@@ -216,3 +216,31 @@ jobs:
           docker tag ${{ github.repository }}:${{ github.sha }} ghcr.io/${{ github.repository }}
           docker tag ${{ github.repository }}:${{ github.sha }} ghcr.io/${{ github.repository }}:${{ github.sha }}
           docker push --all-tags ghcr.io/${{ github.repository }}
+
+  deploy-staging:
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/main' }}
+    needs:
+      - build-and-push-image
+    environment: staging
+    steps:
+      # - name: Report Deployment
+      #   uses: digitalservicebund/github-actions/track-deployment@34a48d29a9c4cc2fd6710b8eb37e13618a08fa88
+      #   with:
+      #     project: remix-application-example
+      #     environment: staging
+      #     metrics_deployment_webhook_url: ${{ secrets.METRICS_DEPLOYMENT_WEBHOOK_URL }}
+      #     metrics_webhook_token: ${{ secrets.METRICS_WEBHOOK_TOKEN }}
+
+      - name: Deploy new staging image
+        uses: digitalservicebund/github-actions/argocd-deploy@38716f8c30bd393d7d6d7f3fde433367c5fdff85
+        with:
+          environment: staging
+          version: ${{ github.sha }}
+          deploying_repo: remix-application-example
+          infra_repo: aremix-application-example-infra
+          deploy_key: ${{ secrets.DEPLOY_KEY }}
+          app: remix-application-example-staging
+          argocd_pipeline_password: ${{ secrets.ARGOCD_PIPELINE_PASSWORD }}
+          argocd_server: ${{ secrets.ARGOCD_SERVER }}
+          argocd_sync_timeout: 300
