@@ -238,7 +238,7 @@ jobs:
           environment: staging
           version: ${{ github.sha }}
           deploying_repo: remix-application-example
-          infra_repo: aremix-application-example-infra
+          infra_repo: remix-application-example-infra
           deploy_key: ${{ secrets.DEPLOY_KEY }}
           app: remix-application-example-staging
           argocd_pipeline_password: ${{ secrets.ARGOCD_PIPELINE_PASSWORD }}
