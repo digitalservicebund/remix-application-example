@@ -1,6 +1,6 @@
 fileignoreconfig:
 - filename: .github/workflows/pipeline.yml
-  checksum: 9c0263dd5f7b33baac172d23be7db7a270910525d8fafa0e53ed58f5c2788fbb
+  checksum: 3eaacc416259a731197e557f234d0413c734b237555100cd616b87f2835bce82
 - filename: .github/workflows/scan.yml
   checksum: b06430d20570ad4ce61e6078af8a2851ef1c1bf832f0a4f70c490bde1f533cdd
 - filename: README.md
