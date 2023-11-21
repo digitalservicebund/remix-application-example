@@ -193,6 +193,8 @@ jobs:
       - audit-licenses
       - vulnerability-scan
     permissions:
+      contents: read
+      id-token: write # This is used to complete the identity challenge with sigstore/fulcio..
       packages: write
     steps:
       - name: Checkout code
@@ -202,7 +204,12 @@ jobs:
         uses: digitalservicebund/github-actions/github-actions-linter@5009471245d84903ea1af84104eb1908f8e2b2a2
 
       - name: Build image from Dockerfile
-        run: docker build -t ${{ github.repository }}:${{ github.sha }} .
+        run: docker build -t ${{ env.IMAGE_NAME }}:${{ github.sha }} . --build-arg COMMIT_SHA=${{ github.sha }}
+
+      - name: Install cosign
+        # Third-party action, pin to commit SHA!
+        # See https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions
+        uses: sigstore/cosign-installer@1fc5bd396d372bee37d608f955b336615edf79c8
 
       - name: Login to container registry
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
@@ -211,11 +218,18 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Sign the published Docker image
+        env:
+          COSIGN_EXPERIMENTAL: "true"
+        # This step uses the identity token to provision an ephemeral certificate
+        # against the sigstore community Fulcio instance.
+        run: cosign sign ghcr.io/${{ env.IMAGE_NAME }}:${{ github.sha }}
+
       - name: Push image
         run: |
-          docker tag ${{ github.repository }}:${{ github.sha }} ghcr.io/${{ github.repository }}
-          docker tag ${{ github.repository }}:${{ github.sha }} ghcr.io/${{ github.repository }}:${{ github.sha }}
-          docker push --all-tags ghcr.io/${{ github.repository }}
+          docker tag ${{ env.IMAGE_NAME }}:${{ github.sha }} ghcr.io/${{ env.IMAGE_NAME }}
+          docker tag ${{ env.IMAGE_NAME }}:${{ github.sha }} ghcr.io/${{ env.IMAGE_NAME }}:${{ github.sha }}
+          docker push --all-tags ghcr.io/${{ env.IMAGE_NAME }}
 
   deploy-staging:
     runs-on: ubuntu-latest
