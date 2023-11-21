@@ -9,6 +9,7 @@
     "start": "remix-serve ./build/index.js",
     "typecheck": "tsc",
     "test": "jest test",
+    "test:generate-coverage": "jest --coverage",
     "test:e2e": "playwright test",
     "lint:check": "eslint --ext .js,.ts --ignore-path .gitignore .",
     "lint:fix": "npm run lint:check -- --fix",
