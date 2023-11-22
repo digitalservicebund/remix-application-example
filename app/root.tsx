@@ -49,6 +49,10 @@ export default function App() {
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
+        <script
+          src="https://stage.formular.support.115.de/demofeedback/bmi-widget.js"
+          id="bmi115WidgetScript"
+        ></script>
       </body>
     </html>
   );
