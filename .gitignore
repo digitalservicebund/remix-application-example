@@ -148,6 +148,7 @@ dist
 # Playwright
 /test-results/
 /playwright-report/
+**/playwright-report/
 /playwright/.cache/
 
 # Lefthook
