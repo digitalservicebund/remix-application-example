@@ -268,7 +268,7 @@ jobs:
 
   deploy-staging:
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: ${{ github.ref == 'refs/heads/main' && false }}
     needs:
       - build-and-push-image
     environment: staging
